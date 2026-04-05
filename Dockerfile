@@ -25,5 +25,5 @@ RUN mkdir -p /app/logs
 ENV TZ=Asia/Kolkata
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
-# Run the trading bot
-CMD ["python", "live_trading_engine_optimized.py"]
+# Run the trading bot with trailing SL (auto-start on container launch)
+CMD ["python", "live_trading_engine_with_trailing.py"]
