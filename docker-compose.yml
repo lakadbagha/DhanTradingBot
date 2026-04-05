@@ -1,0 +1,41 @@
+services:
+  trading-bot:
+    image: nifty-trading-bot:latest
+    container_name: nifty-trading-bot
+    restart: unless-stopped
+    volumes:
+      # Mount logs directory to persist outside container
+      - ./logs:/app/logs
+      # Mount CSV files directory
+      - ./data:/app/data
+      # Mount credentials (keep separate for security)
+      - ./creds.py:/app/creds.py:ro
+    environment:
+      - TZ=Asia/Kolkata
+      - PYTHONUNBUFFERED=1
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+    # Optional: Add health check
+    healthcheck:
+      test: ["CMD", "python", "-c", "import sys; sys.exit(0)"]
+      interval: 1m
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+  # Optional: Add monitoring dashboard
+  # dashboard:
+  #   image: grafana/grafana:latest
+  #   container_name: trading-dashboard
+  #   ports:
+  #     - "3000:3000"
+  #   volumes:
+  #     - grafana-data:/var/lib/grafana
+  #   depends_on:
+  #     - trading-bot
+
+# volumes:
+#   grafana-data:

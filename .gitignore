@@ -1,0 +1,122 @@
+# ============================================================================
+# NIFTY TRADING BOT - GIT IGNORE
+# ============================================================================
+
+# ============================================================================
+# CRITICAL: NEVER COMMIT THESE (Security & Privacy)
+# ============================================================================
+creds.py
+*.env
+.env
+*.key
+*.pem
+credentials.json
+config_secret.py
+
+# API Keys and Tokens
+*_token.txt
+*_secret.txt
+
+# ============================================================================
+# Trading Data & Logs (Generated at Runtime)
+# ============================================================================
+logs/
+*.log
+data/*.csv
+*.xlsx
+*.xls
+
+# Backup files
+*.backup
+*.bak
+
+# ============================================================================
+# Python
+# ============================================================================
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtual Environments
+venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+
+# ============================================================================
+# Docker
+# ============================================================================
+# Keep Dockerfile and docker-compose.yml but ignore runtime data
+*.tar
+*.tar.gz
+
+# ============================================================================
+# IDE & Editor
+# ============================================================================
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+*.sublime-project
+*.sublime-workspace
+
+# Visual Studio
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# ============================================================================
+# Operating System
+# ============================================================================
+Thumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# ============================================================================
+# Temporary Files
+# ============================================================================
+*.tmp
+*.temp
+*.cache
+.cache/
+
+# ============================================================================
+# Keep These Sample Files (Safe to Commit)
+# ============================================================================
+!data/README.md
+!logs/README.md
+
+# ============================================================================
+# Backtest Results (Optional - uncomment to exclude)
+# ============================================================================
+# REAL_HISTORICAL_*.xlsx
+# CONFLUENCE_BACKTEST_*.xlsx
+# *_REPORT_*.xlsx

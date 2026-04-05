@@ -1,0 +1,66 @@
+# Git files
+.git
+.gitignore
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Virtual environments
+venv/
+env/
+ENV/
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Logs
+*.log
+logs/
+
+# Data files (will be mounted as volumes)
+*.csv
+*.xlsx
+*.json
+data/
+
+# Temporary files
+*.tmp
+*.bak
+*.old
+
+# Documentation (not needed in container)
+*.md
+# Exclude all .txt files except requirements.txt
+*.txt
+!requirements.txt
+
+# Test files
+test_*.py
+*_test.py
+verify_*.py
+fetch_*.py
+download_*.py
+place_*.py
+amo_*.py
+
+# Backtest files (not needed for live)
+backtest_*.py
+auto_optimizer.py
+final_optimizer.py
+generate_*.py
+
+# Old/unused files
+config.py
+connect.py
+fibonacci_live_strategy.py
+
+# Security master files (large, not needed)
+dhan_complete_security_master.csv
+nifty_options_complete.csv

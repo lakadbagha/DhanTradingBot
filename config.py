@@ -1,0 +1,5 @@
+# Dhan API Credentials
+# Get these from: https://dhanhq.co/api
+
+CLIENT_ID = "1104341808"
+ACCESS_TOKEN = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJpc3MiOiJkaGFuIiwicGFydG5lcklkIjoiIiwiZXhwIjoxNzc1Mzk2NTIwLCJpYXQiOjE3NzUzMTAxMjAsInRva2VuQ29uc3VtZXJUeXBlIjoiU0VMRiIsIndlYmhvb2tVcmwiOiIiLCJkaGFuQ2xpZW50SWQiOiIxMTA0MzQxODA4In0.jYQbjtIWbyX2QDkQ953lb6o9DGzB6_7lMIPQDkO8Pe8rE_cWQDZ9m6fl0ApD2REeQgzSjOZib-VTQ5YXZHswNA"
