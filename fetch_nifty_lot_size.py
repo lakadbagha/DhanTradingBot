@@ -3,11 +3,12 @@ Fetch NIFTY Option Lot Size from Dhan Security Master
 This shows the ACTUAL lot size (not hardcoded!)
 """
 
-from dhanhq import dhanhq
+from dhanhq import dhanhq, DhanContext
 from creds import client_id, access_token
 import pandas as pd
 
-dhan = dhanhq(client_id, access_token)
+dhan_context = DhanContext(client_id, access_token)
+dhan = dhanhq(dhan_context)
 
 print("\n" + "="*80)
 print("🔍 FETCHING NIFTY LOT SIZE FROM DHAN SECURITY MASTER")

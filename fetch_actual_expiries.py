@@ -3,12 +3,13 @@ Fetch Available NIFTY Expiries from Dhan API
 This script shows all available expiry dates for NIFTY options
 """
 
-from dhanhq import dhanhq
+from dhanhq import dhanhq, DhanContext
 from creds import client_id, access_token
 from datetime import datetime
 import pandas as pd
 
-dhan = dhanhq(client_id, access_token)
+dhan_context = DhanContext(client_id, access_token)
+dhan = dhanhq(dhan_context)
 
 print("\n" + "="*80)
 print("🔍 FETCHING AVAILABLE NIFTY OPTION EXPIRIES FROM DHAN")

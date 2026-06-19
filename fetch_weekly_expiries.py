@@ -4,12 +4,13 @@ Since Dhan's expiry_list() only shows monthly expiries,
 we'll fetch the option chain to see actual weekly expiries
 """
 
-from dhanhq import dhanhq
+from dhanhq import dhanhq, DhanContext
 from creds import client_id, access_token
 from datetime import datetime, timedelta
 import json
 
-dhan = dhanhq(client_id, access_token)
+dhan_context = DhanContext(client_id, access_token)
+dhan = dhanhq(dhan_context)
 
 print("\n" + "="*80)
 print("🔍 FETCHING NIFTY WEEKLY EXPIRIES FROM OPTION CHAIN")

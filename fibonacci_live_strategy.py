@@ -4,7 +4,7 @@ Entry: Retrace to 61.8%, candle closes above/below 50%
 SL: ₹1500, Target: ₹3000
 """
 
-from dhanhq import dhanhq
+from dhanhq import dhanhq, DhanContext
 from config import CLIENT_ID, ACCESS_TOKEN
 import pandas as pd
 from datetime import datetime, timedelta
@@ -13,7 +13,8 @@ import time
 
 class FibonacciLiveStrategy:
     def __init__(self):
-        self.dhan = dhanhq(CLIENT_ID, ACCESS_TOKEN)
+        dhan_context = DhanContext(CLIENT_ID, ACCESS_TOKEN)
+        self.dhan = dhanhq(dhan_context)
         self.position = None
         
     def get_nifty_spot_price(self):

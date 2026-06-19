@@ -5,7 +5,7 @@ Uses Dhan's built-in methods discovered from library source code:
 2. expiry_list() - Gets all available expiry dates
 """
 
-from dhanhq import dhanhq
+from dhanhq import dhanhq, DhanContext
 from creds import client_id, access_token
 import pandas as pd
 
@@ -14,7 +14,8 @@ print("🎯 COMPLETE NIFTY OPTIONS SECURITY ID FINDER")
 print("=" * 80)
 
 # Connect to Dhan
-dhan = dhanhq(client_id, access_token)
+dhan_context = DhanContext(client_id, access_token)
+dhan = dhanhq(dhan_context)
 print("\n✅ Connected to Dhan API")
 
 # STEP 1: Get all expiry dates

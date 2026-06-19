@@ -14,7 +14,7 @@ Features:
 - Generates Excel report with REAL results
 """
 
-from dhanhq import dhanhq
+from dhanhq import dhanhq, DhanContext
 from creds import client_id, access_token
 import strategy_config as cfg
 import pandas as pd
@@ -28,7 +28,8 @@ class RealHistoricalBacktester:
     
     def __init__(self):
         """Initialize backtester"""
-        self.dhan = dhanhq(client_id, access_token)
+        dhan_context = DhanContext(client_id, access_token)
+        self.dhan = dhanhq(dhan_context)
         self.trades = []
         
         # Load config

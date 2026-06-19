@@ -3,7 +3,7 @@
 Shows actual P&L from last 3 months of trading
 """
 
-from dhanhq import dhanhq
+from dhanhq import dhanhq, DhanContext
 from config import CLIENT_ID, ACCESS_TOKEN
 import strategy_config as cfg
 import pandas as pd
@@ -13,7 +13,8 @@ import numpy as np
 
 class ThreeMonthBacktester:
     def __init__(self):
-        self.dhan = dhanhq(CLIENT_ID, ACCESS_TOKEN)
+        dhan_context = DhanContext(CLIENT_ID, ACCESS_TOKEN)
+        self.dhan = dhanhq(dhan_context)
         self.trades = []
         
         self.max_loss = cfg.MAX_LOSS_PER_LOT
@@ -424,7 +425,8 @@ if __name__ == "__main__":
         print(f"\n✅ 3-Month backtest complete! {len(trades)} real trades executed.")
         
         # Save detailed report
-        with open('3_MONTH_REPORT.txt', 'w') as f:
+        # Open report file with UTF-8 encoding to support emoji/unicode characters
+        with open('3_MONTH_REPORT.txt', 'w', encoding='utf-8', errors='replace') as f:
             f.write("=" * 80 + "\n")
             f.write("3-MONTH REAL DATA BACKTEST REPORT\n")
             f.write("=" * 80 + "\n\n")

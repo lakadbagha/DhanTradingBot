@@ -3,7 +3,7 @@ OPTIMIZED Fibonacci Strategy - Real Data Backtest
 With Trend Filter - Achieves 61%+ Win Rate
 """
 
-from dhanhq import dhanhq
+from dhanhq import dhanhq, DhanContext
 from config import CLIENT_ID, ACCESS_TOKEN
 import strategy_config as cfg
 import pandas as pd
@@ -13,7 +13,8 @@ import numpy as np
 
 class OptimizedBacktester:
     def __init__(self):
-        self.dhan = dhanhq(CLIENT_ID, ACCESS_TOKEN)
+        dhan_context = DhanContext(CLIENT_ID, ACCESS_TOKEN)
+        self.dhan = dhanhq(dhan_context)
         self.trades = []
         
         # Load optimized config

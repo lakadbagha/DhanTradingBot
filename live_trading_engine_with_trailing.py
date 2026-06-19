@@ -10,13 +10,14 @@ Implements advanced profit-maximization strategy:
 This can add 10-30% extra profit per winning trade!
 """
 
-from dhanhq import dhanhq
+from dhanhq import dhanhq, DhanContext
 from creds import client_id, access_token
 import strategy_config
 from datetime import datetime, timedelta, time
 import pandas as pd
 import time as time_module
 import logging
+import sys
 from typing import Dict, List, Optional
 import os
 import threading
@@ -39,11 +40,19 @@ logging.basicConfig(
     level=logging.INFO,
     format='%(asctime)s - %(levelname)s - %(message)s',
     handlers=[
-        logging.FileHandler(log_filename),
+        logging.FileHandler(log_filename, encoding='utf-8'),
         logging.StreamHandler()
     ],
     force=True
 )
+
+# Ensure console I/O uses UTF-8 and doesn't raise on unsupported characters
+try:
+    sys.stdout.reconfigure(encoding='utf-8', errors='replace')
+    sys.stderr.reconfigure(encoding='utf-8', errors='replace')
+except Exception:
+    # Not critical; continue if reconfigure isn't available
+    pass
 
 # SAFETY FLAGS
 PAPER_TRADING_MODE = False  # ✅ LIVE TRADING ENABLED!
@@ -61,7 +70,8 @@ class EnhancedTradingEngine:
     
     def __init__(self):
         """Initialize engine"""
-        self.dhan = dhanhq(client_id, access_token)
+        dhan_context = DhanContext(client_id, access_token)
+        self.dhan = dhanhq(dhan_context)
         self.logger = logging.getLogger(__name__)
 
         # Initialize Position Manager for trailing

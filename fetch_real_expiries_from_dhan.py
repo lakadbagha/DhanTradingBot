@@ -3,12 +3,13 @@ Fetch ACTUAL NIFTY Option Expiries from Dhan API
 Uses the expiry_list() method from DhanHQ library
 """
 
-from dhanhq import dhanhq
+from dhanhq import dhanhq, DhanContext
 from creds import client_id, access_token
 from datetime import datetime
 import json
 
-dhan = dhanhq(client_id, access_token)
+dhan_context = DhanContext(client_id, access_token)
+dhan = dhanhq(dhan_context)
 
 print("\n" + "="*80)
 print("🔍 FETCHING ACTUAL NIFTY EXPIRIES FROM DHAN API")

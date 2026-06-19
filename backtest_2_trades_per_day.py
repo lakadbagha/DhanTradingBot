@@ -3,7 +3,7 @@ Multi-Strategy Backtest with 2 Trades Per Day
 Shows REAL win percentage from actual market data
 """
 
-from dhanhq import dhanhq
+from dhanhq import dhanhq, DhanContext
 from config import CLIENT_ID, ACCESS_TOKEN
 import strategy_config as cfg
 import pandas as pd
@@ -13,7 +13,8 @@ import numpy as np
 
 class TwoTradesPerDayBacktester:
     def __init__(self):
-        self.dhan = dhanhq(CLIENT_ID, ACCESS_TOKEN)
+        dhan_context = DhanContext(CLIENT_ID, ACCESS_TOKEN)
+        self.dhan = dhanhq(dhan_context)
         self.trades = []
         
         self.max_loss = cfg.MAX_LOSS_PER_LOT

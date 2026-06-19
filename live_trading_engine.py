@@ -7,7 +7,7 @@ Built with comprehensive safety features and risk management
 ⚠️  IMPORTANT: Start with PAPER_TRADING_MODE = True to test!
 """
 
-from dhanhq import dhanhq
+from dhanhq import dhanhq, DhanContext
 from creds import client_id, access_token
 import strategy_config
 from datetime import datetime, timedelta, time
@@ -55,7 +55,8 @@ class LiveTradingEngine:
     
     def __init__(self):
         """Initialize trading engine"""
-        self.dhan = dhanhq(client_id, access_token)
+        dhan_context = DhanContext(client_id, access_token)
+        self.dhan = dhanhq(dhan_context)
         self.logger = logging.getLogger(__name__)
 
         # Load configuration

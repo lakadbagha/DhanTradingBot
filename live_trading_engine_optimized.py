@@ -10,7 +10,7 @@ Improvements:
 5. Security ID integration from security_id_map.py
 """
 
-from dhanhq import dhanhq
+from dhanhq import dhanhq, DhanContext
 from creds import client_id, access_token
 import strategy_config
 from datetime import datetime, timedelta, time
@@ -55,7 +55,8 @@ class OptimizedLiveTradingEngine:
     
     def __init__(self):
         """Initialize engine with all optimizations"""
-        self.dhan = dhanhq(client_id, access_token)
+        dhan_context = DhanContext(client_id, access_token)
+        self.dhan = dhanhq(dhan_context)
         self.logger = logging.getLogger(__name__)
         
         # Load config

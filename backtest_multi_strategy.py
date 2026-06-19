@@ -4,7 +4,7 @@ Combines multiple strategies to ensure 1+ trade per day
 Strategies: Fibonacci + Candlestick Patterns + EMA Bounce + S/R Bounce
 """
 
-from dhanhq import dhanhq
+from dhanhq import dhanhq, DhanContext
 from config import CLIENT_ID, ACCESS_TOKEN
 import strategy_config as cfg
 import pandas as pd
@@ -14,7 +14,8 @@ import numpy as np
 
 class MultiStrategyBacktester:
     def __init__(self):
-        self.dhan = dhanhq(CLIENT_ID, ACCESS_TOKEN)
+        dhan_context = DhanContext(CLIENT_ID, ACCESS_TOKEN)
+        self.dhan = dhanhq(dhan_context)
         self.trades = []
         
         # Load config
